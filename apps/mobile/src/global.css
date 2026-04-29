@@ -1,0 +1,32 @@
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css";
+
+@media android {
+  :root {
+    --font-mono: monospace;
+    --font-rounded: normal;
+    --font-serif: serif;
+    --font-sans: normal;
+  }
+}
+
+@media ios {
+  :root {
+    --font-mono: ui-monospace;
+    --font-serif: ui-serif;
+    --font-sans: system-ui;
+    --font-rounded: ui-rounded;
+  }
+}
+
+@layer theme {
+  @theme {
+    --color-ink-950: #07090d;
+    --color-ink-900: #0c1118;
+    --color-ink-800: #141b24;
+    --color-cyan-primary: #22d3ee;
+    --color-emerald-soft: #34d399;
+    --color-rose-soft: #fb7185;
+  }
+}
