@@ -24,13 +24,13 @@ export function Sidebar() {
   }
 
   return (
-    <aside className="flex min-h-dvh w-full flex-col border-r border-white/10 bg-ink-950/90 p-4 lg:w-72">
-      <div className="mb-8">
+    <aside className="flex w-full flex-col border-b border-white/10 bg-ink-950/90 p-4 lg:min-h-dvh lg:w-72 lg:border-b-0 lg:border-r">
+      <div className="mb-4 lg:mb-8">
         <p className="text-xl font-semibold tracking-normal text-white">FinTrack</p>
         <p className="mt-1 text-sm text-slate-400">Controle financeiro pessoal</p>
       </div>
 
-      <nav className="grid gap-2">
+      <nav className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-1">
         {items.map((item) => {
           const active = pathname === item.href;
           const Icon = item.icon;
@@ -50,7 +50,7 @@ export function Sidebar() {
         })}
       </nav>
 
-      <div className="mt-auto pt-6">
+      <div className="mt-4 lg:mt-auto lg:pt-6">
         <Button variant="secondary" className="w-full" onClick={logout}>
           <LogOut className="h-4 w-4" />
           Logout
