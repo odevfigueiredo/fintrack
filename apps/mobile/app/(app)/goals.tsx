@@ -27,7 +27,7 @@ export default function GoalsScreen() {
     try {
       setGoals(await apiFetch<ApiGoal[]>("/goals"));
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Nao foi possivel carregar metas");
+      setError(err instanceof Error ? err.message : "Não foi possível carregar metas");
     } finally {
       setLoading(false);
     }
@@ -77,7 +77,7 @@ export default function GoalsScreen() {
       reset();
       await load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Nao foi possivel salvar meta");
+      setError(err instanceof Error ? err.message : "Não foi possível salvar meta");
     } finally {
       setLoading(false);
     }
@@ -91,7 +91,7 @@ export default function GoalsScreen() {
       await apiFetch(`/goals/${id}`, { method: "DELETE" });
       await load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Nao foi possivel remover meta");
+      setError(err instanceof Error ? err.message : "Não foi possível remover meta");
     } finally {
       setLoading(false);
     }
@@ -104,7 +104,7 @@ export default function GoalsScreen() {
 
       <Card className="gap-4">
         <Text className="text-lg font-semibold text-white">{editingId ? "Editar meta" : "Nova meta"}</Text>
-        <Field label="Titulo" value={form.title} onChangeText={(title) => setForm({ ...form, title })} placeholder="Reserva de emergencia" />
+        <Field label="Título" value={form.title} onChangeText={(title) => setForm({ ...form, title })} placeholder="Reserva de emergência" />
         <View className="flex-row gap-3">
           <View className="flex-1">
             <Field label="Alvo" value={form.targetAmount} keyboardType="decimal-pad" onChangeText={(targetAmount) => setForm({ ...form, targetAmount })} placeholder="10000" />

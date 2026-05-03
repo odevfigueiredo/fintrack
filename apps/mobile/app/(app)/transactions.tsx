@@ -25,7 +25,7 @@ export default function TransactionsScreen() {
     try {
       setTransactions(await apiFetch<ApiTransaction[]>(`/transactions?${params.toString()}`));
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Nao foi possivel carregar transacoes");
+      setError(err instanceof Error ? err.message : "Não foi possível carregar transações");
     } finally {
       setLoading(false);
     }
@@ -43,7 +43,7 @@ export default function TransactionsScreen() {
       await apiFetch(`/transactions/${id}`, { method: "DELETE" });
       await load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Nao foi possivel remover");
+      setError(err instanceof Error ? err.message : "Não foi possível remover");
     } finally {
       setLoading(false);
     }
@@ -52,7 +52,7 @@ export default function TransactionsScreen() {
   return (
     <ScrollView className="flex-1 bg-ink-950" contentContainerClassName="gap-5 p-5 pb-10" contentInsetAdjustmentBehavior="automatic">
       <View className="gap-1">
-        <Text className="text-2xl font-semibold text-white">Transacoes</Text>
+        <Text className="text-2xl font-semibold text-white">Transações</Text>
         <Text className="text-sm text-slate-400">Filtre por mes e tipo.</Text>
       </View>
 

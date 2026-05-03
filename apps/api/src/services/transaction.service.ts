@@ -8,11 +8,11 @@ async function ensureCategoryMatches(userId: string, categoryId: string, type: "
   const category = await categoryRepository.findAccessible(userId, categoryId);
 
   if (!category) {
-    throw new AppError("Categoria nao encontrada", 404);
+    throw new AppError("Categoria não encontrada", 404);
   }
 
   if (category.type !== type) {
-    throw new AppError("O tipo da categoria nao combina com a transacao", 422);
+    throw new AppError("O tipo da categoria não combina com a transação", 422);
   }
 
   return category;
@@ -28,7 +28,7 @@ export const transactionService = {
     const transaction = await transactionRepository.findById(userId, id);
 
     if (!transaction) {
-      throw new AppError("Transacao nao encontrada", 404);
+      throw new AppError("Transação não encontrada", 404);
     }
 
     return serializeTransaction(transaction);
@@ -49,7 +49,7 @@ export const transactionService = {
     const current = await transactionRepository.findById(userId, id);
 
     if (!current) {
-      throw new AppError("Transacao nao encontrada", 404);
+      throw new AppError("Transação não encontrada", 404);
     }
 
     const nextCategoryId = input.categoryId ?? current.categoryId;
@@ -68,7 +68,7 @@ export const transactionService = {
     const current = await transactionRepository.findById(userId, id);
 
     if (!current) {
-      throw new AppError("Transacao nao encontrada", 404);
+      throw new AppError("Transação não encontrada", 404);
     }
 
     await transactionRepository.delete(userId, id);

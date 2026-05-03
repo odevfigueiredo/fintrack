@@ -25,7 +25,7 @@ export default function CategoriesScreen() {
     try {
       setCategories(await apiFetch<ApiCategory[]>("/categories"));
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Nao foi possivel carregar categorias");
+      setError(err instanceof Error ? err.message : "Não foi possível carregar categorias");
     } finally {
       setLoading(false);
     }
@@ -69,7 +69,7 @@ export default function CategoriesScreen() {
       reset();
       await load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Nao foi possivel salvar categoria");
+      setError(err instanceof Error ? err.message : "Não foi possível salvar categoria");
     } finally {
       setLoading(false);
     }
@@ -83,7 +83,7 @@ export default function CategoriesScreen() {
       await apiFetch(`/categories/${id}`, { method: "DELETE" });
       await load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Nao foi possivel remover categoria");
+      setError(err instanceof Error ? err.message : "Não foi possível remover categoria");
     } finally {
       setLoading(false);
     }

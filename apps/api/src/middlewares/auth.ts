@@ -12,7 +12,7 @@ export function requireAuth(request: Request, _response: Response, next: NextFun
   const authorization = request.headers.authorization;
 
   if (!authorization?.startsWith("Bearer ")) {
-    throw new AppError("Token nao informado", 401);
+    throw new AppError("Token não informado", 401);
   }
 
   const token = authorization.replace("Bearer ", "");
@@ -25,6 +25,6 @@ export function requireAuth(request: Request, _response: Response, next: NextFun
     };
     next();
   } catch {
-    throw new AppError("Token invalido ou expirado", 401);
+    throw new AppError("Token inválido ou expirado", 401);
   }
 }

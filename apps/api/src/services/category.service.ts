@@ -18,7 +18,7 @@ export const categoryService = {
     const category = await categoryRepository.findOwned(userId, categoryId);
 
     if (!category) {
-      throw new AppError("Categoria nao encontrada ou nao editavel", 404);
+      throw new AppError("Categoria não encontrada ou não editável", 404);
     }
 
     const updated = await categoryRepository.update(userId, categoryId, input);
@@ -29,7 +29,7 @@ export const categoryService = {
     const category = await categoryRepository.findOwned(userId, categoryId);
 
     if (!category) {
-      throw new AppError("Categoria nao encontrada ou nao removivel", 404);
+      throw new AppError("Categoria não encontrada ou não removível", 404);
     }
 
     await categoryRepository.delete(userId, categoryId);

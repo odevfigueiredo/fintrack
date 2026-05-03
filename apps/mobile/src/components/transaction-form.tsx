@@ -47,7 +47,7 @@ export function TransactionForm({ transactionId }: { transactionId?: string }) {
           });
         }
       } catch (err) {
-        setError(err instanceof Error ? err.message : "Nao foi possivel carregar dados");
+        setError(err instanceof Error ? err.message : "Não foi possível carregar dados");
       } finally {
         setLoading(false);
       }
@@ -93,7 +93,7 @@ export function TransactionForm({ transactionId }: { transactionId?: string }) {
         setForm(blankForm);
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Nao foi possivel salvar");
+      setError(err instanceof Error ? err.message : "Não foi possível salvar");
     } finally {
       setLoading(false);
     }
@@ -104,7 +104,7 @@ export function TransactionForm({ transactionId }: { transactionId?: string }) {
       <ErrorText message={error} />
       {info ? <Text className="rounded-md border border-cyan-300/30 bg-cyan-300/10 px-3 py-2 text-sm text-cyan-100">{info}</Text> : null}
 
-      <Field label="Titulo" value={form.title} onChangeText={(value) => setForm({ ...form, title: value })} placeholder="Mercado, salario..." />
+      <Field label="Título" value={form.title} onChangeText={(value) => setForm({ ...form, title: value })} placeholder="Mercado, salário..." />
       <View className="flex-row gap-3">
         <View className="flex-1">
           <Field label="Valor" value={form.amount} keyboardType="decimal-pad" onChangeText={(value) => setForm({ ...form, amount: value })} placeholder="0.00" />
@@ -136,7 +136,7 @@ export function TransactionForm({ transactionId }: { transactionId?: string }) {
         </View>
       </View>
 
-      <Field label="Descricao" value={form.description} onChangeText={(value) => setForm({ ...form, description: value })} placeholder="Opcional" />
+      <Field label="Descrição" value={form.description} onChangeText={(value) => setForm({ ...form, description: value })} placeholder="Opcional" />
       <Button loading={loading} onPress={submit}>
         {transactionId ? "Salvar alteracoes" : "Salvar transacao"}
       </Button>

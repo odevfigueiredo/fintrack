@@ -11,13 +11,13 @@ export default function AppLayout() {
       }}
     >
       <Stack.Screen name="home" options={{ title: "Dashboard" }} />
-      <Stack.Screen name="transactions" options={{ title: "Transacoes" }} />
+      <Stack.Screen name="transactions" options={{ title: "Transações" }} />
       <Stack.Screen name="new-transaction" options={{ title: "Nova transacao" }} />
       <Stack.Screen name="edit-transaction" options={{ title: "Editar transacao" }} />
       <Stack.Screen name="categories" options={{ title: "Categorias" }} />
       <Stack.Screen name="goals" options={{ title: "Metas" }} />
       <Stack.Screen name="profile" options={{ title: "Perfil" }} />
-      <Stack.Screen name="settings" options={{ title: "Settings" }} />
+      <Stack.Screen name="settings" options={{ title: "Configurações" }} />
     </Stack>
   );
 }

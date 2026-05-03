@@ -70,7 +70,7 @@ export const authService = {
     const user = await userRepository.findById(userId);
 
     if (!user) {
-      throw new AppError("Usuario nao encontrado", 404);
+      throw new AppError("Usuário não encontrado", 404);
     }
 
     return publicUser(user);

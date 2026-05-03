@@ -8,10 +8,10 @@ import { Button } from "./ui";
 
 const items = [
   { href: "/dashboard", label: "Dashboard", icon: BarChart3 },
-  { href: "/transactions", label: "Transacoes", icon: ReceiptText },
+  { href: "/transactions", label: "Transações", icon: ReceiptText },
   { href: "/categories", label: "Categorias", icon: FolderKanban },
   { href: "/goals", label: "Metas", icon: Goal },
-  { href: "/settings", label: "Settings", icon: Settings }
+  { href: "/settings", label: "Configurações", icon: Settings }
 ];
 
 export function Sidebar() {
@@ -53,7 +53,7 @@ export function Sidebar() {
       <div className="mt-4 lg:mt-auto lg:pt-6">
         <Button variant="secondary" className="w-full" onClick={logout}>
           <LogOut className="h-4 w-4" />
-          Logout
+          Sair
         </Button>
       </div>
     </aside>

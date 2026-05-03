@@ -22,7 +22,7 @@ export const goalService = {
     const current = await goalRepository.findById(userId, id);
 
     if (!current) {
-      throw new AppError("Meta nao encontrada", 404);
+      throw new AppError("Meta não encontrada", 404);
     }
 
     const goal = await goalRepository.update(userId, id, input);
@@ -33,7 +33,7 @@ export const goalService = {
     const current = await goalRepository.findById(userId, id);
 
     if (!current) {
-      throw new AppError("Meta nao encontrada", 404);
+      throw new AppError("Meta não encontrada", 404);
     }
 
     await goalRepository.delete(userId, id);

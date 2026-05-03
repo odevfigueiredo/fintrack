@@ -21,7 +21,7 @@ export default function DashboardPage() {
       const data = await apiFetch<DashboardSummary>("/dashboard/summary");
       setSummary(data);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Nao foi possivel carregar o dashboard");
+      setError(err instanceof Error ? err.message : "Não foi possível carregar o dashboard");
     } finally {
       setLoading(false);
     }
@@ -82,13 +82,13 @@ export default function DashboardPage() {
       </section>
 
       <Card>
-        <h2 className="mb-5 text-lg font-semibold tracking-normal text-white">Ultimas transacoes</h2>
+        <h2 className="mb-5 text-lg font-semibold tracking-normal text-white">Últimas transações</h2>
         {summary?.recentTransactions.length ? (
           <div className="overflow-x-auto">
             <table className="w-full min-w-[680px] text-left text-sm">
               <thead className="text-xs uppercase text-slate-500">
                 <tr className="border-b border-white/10">
-                  <th className="py-3 pr-4 font-medium">Titulo</th>
+                  <th className="py-3 pr-4 font-medium">Título</th>
                   <th className="py-3 pr-4 font-medium">Categoria</th>
                   <th className="py-3 pr-4 font-medium">Data</th>
                   <th className="py-3 text-right font-medium">Valor</th>
@@ -110,7 +110,7 @@ export default function DashboardPage() {
             </table>
           </div>
         ) : (
-          <EmptyState>As transacoes recentes aparecem aqui.</EmptyState>
+          <EmptyState>As transações recentes aparecem aqui.</EmptyState>
         )}
       </Card>
     </div>

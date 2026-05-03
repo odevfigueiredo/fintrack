@@ -26,7 +26,7 @@ export default function HomeScreen() {
       setSummary(data);
       setPending(syncResult?.remaining ?? (await countPendingTransactions()));
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Nao foi possivel carregar o dashboard");
+      setError(err instanceof Error ? err.message : "Não foi possível carregar o dashboard");
       setPending(await countPendingTransactions());
     } finally {
       setLoading(false);
@@ -48,7 +48,7 @@ export default function HomeScreen() {
 
       {pending > 0 ? (
         <Card className="gap-3 border-cyan-300/20 bg-cyan-300/10">
-          <Text className="text-sm font-semibold text-cyan-100">{pending} transacao pendente de sincronizacao</Text>
+          <Text className="text-sm font-semibold text-cyan-100">{pending} transação pendente de sincronização</Text>
           <Button loading={loading} onPress={load}>
             Sincronizar
           </Button>
@@ -72,10 +72,10 @@ export default function HomeScreen() {
       </Card>
 
       <View className="gap-3">
-        <Button onPress={() => router.push("/(app)/new-transaction")}>Nova transacao</Button>
+        <Button onPress={() => router.push("/(app)/new-transaction")}>Nova transação</Button>
         <View className="flex-row gap-3">
           <Button variant="secondary" className="flex-1" onPress={() => router.push("/(app)/transactions")}>
-            Transacoes
+            Transações
           </Button>
           <Button variant="secondary" className="flex-1" onPress={() => router.push("/(app)/goals")}>
             Metas
@@ -102,7 +102,7 @@ export default function HomeScreen() {
       </Card>
 
       <Card className="gap-4">
-        <Text className="text-lg font-semibold text-white">Ultimas transacoes</Text>
+        <Text className="text-lg font-semibold text-white">Últimas transações</Text>
         {summary?.recentTransactions.length ? (
           <View className="gap-3">
             {summary.recentTransactions.map((transaction) => (
@@ -121,7 +121,7 @@ export default function HomeScreen() {
             ))}
           </View>
         ) : (
-          <EmptyState>As transacoes recentes aparecem aqui.</EmptyState>
+          <EmptyState>As transações recentes aparecem aqui.</EmptyState>
         )}
       </Card>
     </ScrollView>

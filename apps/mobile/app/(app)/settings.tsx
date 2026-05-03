@@ -31,7 +31,7 @@ export default function SettingsScreen() {
       setMessage(`${result.synced} transacao sincronizada. ${result.remaining} pendente.`);
       await refreshPending();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Nao foi possivel sincronizar");
+      setError(err instanceof Error ? err.message : "Não foi possível sincronizar");
     } finally {
       setLoading(false);
     }
@@ -44,7 +44,7 @@ export default function SettingsScreen() {
 
   return (
     <ScrollView className="flex-1 bg-ink-950" contentContainerClassName="gap-5 p-5 pb-10" contentInsetAdjustmentBehavior="automatic">
-      <Text className="text-2xl font-semibold text-white">Settings</Text>
+      <Text className="text-2xl font-semibold text-white">Configurações</Text>
       <ErrorText message={error} />
       {message ? <Text className="rounded-md border border-cyan-300/30 bg-cyan-300/10 px-3 py-2 text-sm text-cyan-100">{message}</Text> : null}
 
@@ -69,8 +69,8 @@ export default function SettingsScreen() {
       </Card>
 
       <Button variant="danger" onPress={logout}>
-        Logout
-      </Button>
+          Sair
+        </Button>
     </ScrollView>
   );
 }

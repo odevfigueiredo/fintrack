@@ -48,7 +48,7 @@ export default function TransactionsPage() {
       const [nextCategories] = await Promise.all([apiFetch<ApiCategory[]>("/categories"), loadTransactions()]);
       setCategories(nextCategories);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Nao foi possivel carregar transacoes");
+      setError(err instanceof Error ? err.message : "Não foi possível carregar transações");
     } finally {
       setLoading(false);
     }
@@ -104,7 +104,7 @@ export default function TransactionsPage() {
       resetForm();
       await loadTransactions();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Nao foi possivel salvar");
+      setError(err instanceof Error ? err.message : "Não foi possível salvar");
     } finally {
       setLoading(false);
     }
@@ -118,7 +118,7 @@ export default function TransactionsPage() {
       await apiFetch(`/transactions/${id}`, { method: "DELETE" });
       await loadTransactions();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Nao foi possivel remover");
+      setError(err instanceof Error ? err.message : "Não foi possível remover");
     } finally {
       setLoading(false);
     }
@@ -127,7 +127,7 @@ export default function TransactionsPage() {
   return (
     <div className="grid gap-6">
       <header>
-        <h1 className="text-3xl font-semibold tracking-normal text-white">Transacoes</h1>
+        <h1 className="text-3xl font-semibold tracking-normal text-white">Transações</h1>
         <p className="mt-1 text-sm text-slate-400">Cadastre receitas e despesas com filtros por mes, tipo e categoria.</p>
       </header>
 
@@ -146,7 +146,7 @@ export default function TransactionsPage() {
           </div>
 
           <form className="grid gap-4" onSubmit={onSubmit}>
-            <Input label="Titulo" value={form.title} onChange={(event) => setForm({ ...form, title: event.target.value })} required />
+            <Input label="Título" value={form.title} onChange={(event) => setForm({ ...form, title: event.target.value })} required />
             <div className="grid gap-4 md:grid-cols-2">
               <Input label="Valor" type="number" min="0.01" step="0.01" value={form.amount} onChange={(event) => setForm({ ...form, amount: event.target.value })} required />
               <Input label="Data" type="date" value={form.date} onChange={(event) => setForm({ ...form, date: event.target.value })} required />
@@ -165,7 +165,7 @@ export default function TransactionsPage() {
                 ))}
               </Select>
             </div>
-            <Textarea label="Descricao" value={form.description} onChange={(event) => setForm({ ...form, description: event.target.value })} />
+            <Textarea label="Descrição" value={form.description} onChange={(event) => setForm({ ...form, description: event.target.value })} />
             <Button loading={loading} type="submit">
               <Plus className="h-4 w-4" />
               {editingId ? "Salvar alteracoes" : "Adicionar"}
@@ -196,7 +196,7 @@ export default function TransactionsPage() {
               <table className="w-full min-w-[760px] text-left text-sm">
                 <thead className="text-xs uppercase text-slate-500">
                   <tr className="border-b border-white/10">
-                    <th className="py-3 pr-4 font-medium">Titulo</th>
+                    <th className="py-3 pr-4 font-medium">Título</th>
                     <th className="py-3 pr-4 font-medium">Categoria</th>
                     <th className="py-3 pr-4 font-medium">Data</th>
                     <th className="py-3 pr-4 text-right font-medium">Valor</th>

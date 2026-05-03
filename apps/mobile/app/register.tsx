@@ -36,7 +36,7 @@ export default function RegisterScreen() {
       await setSession(result.accessToken, result.user);
       router.replace("/(app)/home");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Nao foi possivel cadastrar");
+      setError(err instanceof Error ? err.message : "Não foi possível cadastrar");
     } finally {
       setLoading(false);
     }

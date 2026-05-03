@@ -29,7 +29,7 @@ export default function GoalsPage() {
     try {
       setGoals(await apiFetch<ApiGoal[]>("/goals"));
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Nao foi possivel carregar metas");
+      setError(err instanceof Error ? err.message : "Não foi possível carregar metas");
     } finally {
       setLoading(false);
     }
@@ -80,7 +80,7 @@ export default function GoalsPage() {
       resetForm();
       await load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Nao foi possivel salvar meta");
+      setError(err instanceof Error ? err.message : "Não foi possível salvar meta");
     } finally {
       setLoading(false);
     }
@@ -94,7 +94,7 @@ export default function GoalsPage() {
       await apiFetch(`/goals/${id}`, { method: "DELETE" });
       await load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Nao foi possivel remover meta");
+      setError(err instanceof Error ? err.message : "Não foi possível remover meta");
     } finally {
       setLoading(false);
     }
@@ -122,7 +122,7 @@ export default function GoalsPage() {
           </div>
 
           <form className="grid gap-4" onSubmit={onSubmit}>
-            <Input label="Titulo" value={form.title} onChange={(event) => setForm({ ...form, title: event.target.value })} required />
+            <Input label="Título" value={form.title} onChange={(event) => setForm({ ...form, title: event.target.value })} required />
             <div className="grid gap-4 md:grid-cols-2">
               <Input label="Valor alvo" type="number" min="0.01" step="0.01" value={form.targetAmount} onChange={(event) => setForm({ ...form, targetAmount: event.target.value })} required />
               <Input label="Valor atual" type="number" min="0" step="0.01" value={form.currentAmount} onChange={(event) => setForm({ ...form, currentAmount: event.target.value })} />

@@ -3,7 +3,7 @@ import { AppError } from "../errors/app-error";
 
 export function requireUserId(request: Request) {
   if (!request.user?.id) {
-    throw new AppError("Usuario nao autenticado", 401);
+    throw new AppError("Usuário não autenticado", 401);
   }
 
   return request.user.id;

@@ -5,7 +5,7 @@ import { AppError } from "../errors/app-error";
 export function errorHandler(error: Error, _request: Request, response: Response, _next: NextFunction) {
   if (error instanceof ZodError) {
     return response.status(422).json({
-      message: "Dados invalidos",
+      message: "Dados inválidos",
       issues: error.flatten()
     });
   }

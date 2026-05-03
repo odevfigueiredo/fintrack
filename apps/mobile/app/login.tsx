@@ -35,7 +35,7 @@ export default function LoginScreen() {
       await setSession(result.accessToken, result.user);
       router.replace("/(app)/home");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Nao foi possivel entrar");
+      setError(err instanceof Error ? err.message : "Não foi possível entrar");
     } finally {
       setLoading(false);
     }

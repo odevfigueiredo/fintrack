@@ -26,7 +26,7 @@ export default function SettingsPage() {
   return (
     <div className="grid gap-6">
       <header>
-        <h1 className="text-3xl font-semibold tracking-normal text-white">Settings</h1>
+        <h1 className="text-3xl font-semibold tracking-normal text-white">Configurações</h1>
         <p className="mt-1 text-sm text-slate-400">Sessao, perfil e informacoes do ambiente.</p>
       </header>
 
@@ -44,11 +44,11 @@ export default function SettingsPage() {
           <dl className="grid gap-3 text-sm">
             <div>
               <dt className="text-slate-500">Nome</dt>
-              <dd className="mt-1 text-slate-100">{user?.name ?? "Nao carregado"}</dd>
+              <dd className="mt-1 text-slate-100">{user?.name ?? "Não carregado"}</dd>
             </div>
             <div>
               <dt className="text-slate-500">E-mail</dt>
-              <dd className="mt-1 text-slate-100">{user?.email ?? "Nao carregado"}</dd>
+              <dd className="mt-1 text-slate-100">{user?.email ?? "Não carregado"}</dd>
             </div>
           </dl>
         </Card>
@@ -65,8 +65,8 @@ export default function SettingsPage() {
           </div>
           <Button variant="danger" onClick={logout}>
             <LogOut className="h-4 w-4" />
-            Logout
-          </Button>
+          Sair
+        </Button>
         </Card>
       </section>
     </div>

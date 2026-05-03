@@ -18,7 +18,7 @@ export default function ProfileScreen() {
       try {
         setUser(await apiFetch<ApiUser>("/auth/me"));
       } catch (err) {
-        setError(err instanceof Error ? err.message : "Nao foi possivel carregar perfil");
+        setError(err instanceof Error ? err.message : "Não foi possível carregar perfil");
       }
     }
 
@@ -35,8 +35,8 @@ export default function ProfileScreen() {
           <Text className="text-2xl font-semibold text-ink-950">{user?.name?.slice(0, 1).toUpperCase() ?? "F"}</Text>
         </View>
         <View>
-          <Text className="text-xl font-semibold text-white">{user?.name ?? "Usuario"}</Text>
-          <Text className="mt-1 text-sm text-slate-400">{user?.email ?? "email nao carregado"}</Text>
+          <Text className="text-xl font-semibold text-white">{user?.name ?? "Usuário"}</Text>
+          <Text className="mt-1 text-sm text-slate-400">{user?.email ?? "email não carregado"}</Text>
         </View>
       </Card>
 
@@ -48,7 +48,7 @@ export default function ProfileScreen() {
           Metas
         </Button>
         <Button variant="secondary" onPress={() => router.push("/(app)/settings")}>
-          Settings
+          Configurações
         </Button>
       </Card>
     </ScrollView>

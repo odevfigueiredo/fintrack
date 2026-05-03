@@ -39,7 +39,7 @@ export default function LoginPage() {
       setSession(result.accessToken, result.user);
       router.replace("/dashboard");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Nao foi possivel entrar");
+      setError(err instanceof Error ? err.message : "Não foi possível entrar");
     } finally {
       setLoading(false);
     }
@@ -68,7 +68,7 @@ export default function LoginPage() {
         </form>
 
         <p className="mt-6 text-center text-sm text-slate-400">
-          Ainda nao tem conta?{" "}
+          Ainda não tem conta?{" "}
           <Link href="/register" className="text-cyan-primary hover:text-cyan-200">
             Criar conta
           </Link>
