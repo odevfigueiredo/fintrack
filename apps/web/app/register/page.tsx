@@ -1,9 +1,9 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Sparkles } from "lucide-react";
 import { AuthResponse, registerSchema } from "@fintrack/shared";
 import { apiFetch, setSession } from "@/lib/api";
 import { Button, Card, ErrorBanner, Input } from "@/components/ui";
@@ -50,9 +50,14 @@ export default function RegisterPage() {
     <main className="grid min-h-dvh place-items-center px-4 py-10">
       <Card className="w-full max-w-md">
         <div className="mb-8 flex items-center gap-3">
-          <div className="grid h-11 w-11 place-items-center rounded-lg bg-cyan-primary text-ink-950">
-            <Sparkles className="h-5 w-5" />
-          </div>
+          <Image
+            src="/brand/fintrack-icon-192.png"
+            alt=""
+            width={48}
+            height={48}
+            className="h-12 w-12 rounded-lg border border-cyan-primary/25 bg-ink-900"
+            priority
+          />
           <div>
             <h1 className="text-2xl font-semibold tracking-normal text-white">Criar conta</h1>
             <p className="text-sm text-slate-400">Comece a organizar seu dinheiro</p>

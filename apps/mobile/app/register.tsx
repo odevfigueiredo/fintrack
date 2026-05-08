@@ -2,10 +2,11 @@ import { useState } from "react";
 import { useRouter } from "expo-router";
 import type { AuthResponse } from "@fintrack/shared";
 import { registerSchema } from "@fintrack/shared";
+import { BrandLogo } from "@/components/brand-logo";
 import { Button, Card, ErrorText, Field } from "@/components/ui";
 import { apiFetch } from "@/lib/api";
 import { setSession } from "@/lib/auth-store";
-import { ScrollView, Text, View } from "@/tw";
+import { ScrollView } from "@/tw";
 
 export default function RegisterScreen() {
   const router = useRouter();
@@ -44,10 +45,7 @@ export default function RegisterScreen() {
 
   return (
     <ScrollView className="flex-1 bg-ink-950" contentContainerClassName="flex-grow justify-center gap-6 p-5">
-      <View>
-        <Text className="text-3xl font-semibold text-white">Criar conta</Text>
-        <Text className="mt-2 text-sm text-slate-400">Organize receitas, despesas e metas.</Text>
-      </View>
+      <BrandLogo title="Criar conta" subtitle="Organize receitas, despesas e metas." />
 
       <Card className="gap-4">
         <ErrorText message={error} />

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "expo-router";
 import type { DashboardSummary } from "@fintrack/shared";
+import { BrandLogo } from "@/components/brand-logo";
 import { CategoryChart, IncomeExpenseChart } from "@/components/charts";
 import { Button, Card, EmptyState, ErrorText, StatCard } from "@/components/ui";
 import { apiFetch } from "@/lib/api";
@@ -39,10 +40,7 @@ export default function HomeScreen() {
 
   return (
     <ScrollView className="flex-1 bg-ink-950" contentContainerClassName="gap-5 p-5 pb-10" contentInsetAdjustmentBehavior="automatic">
-      <View className="gap-1">
-        <Text className="text-3xl font-semibold text-white">FinTrack</Text>
-        <Text className="text-sm text-slate-400">Resumo do seu dinheiro agora.</Text>
-      </View>
+      <BrandLogo compact subtitle="Resumo do seu dinheiro agora." />
 
       <ErrorText message={error} />
 

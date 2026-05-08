@@ -3,7 +3,7 @@ import type { ApiCategory } from "@fintrack/shared";
 import { createCategorySchema } from "@fintrack/shared";
 import { apiFetch } from "@/lib/api";
 import { Button, Card, EmptyState, ErrorText, Field, Segmented } from "@/components/ui";
-import { Pressable, ScrollView, Text, View } from "@/tw";
+import { ScrollView, Text, View } from "@/tw";
 
 const blankForm = {
   name: "",

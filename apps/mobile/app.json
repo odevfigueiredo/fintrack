@@ -5,9 +5,15 @@
     "scheme": "fintrack",
     "version": "0.1.0",
     "orientation": "portrait",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
     "newArchEnabled": true,
     "plugins": ["expo-router", "expo-secure-store", "expo-sqlite"],
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#07090D"
+    },
     "experiments": {
       "typedRoutes": true
     },
@@ -16,8 +22,12 @@
     },
     "android": {
       "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#07090D"
       }
+    },
+    "web": {
+      "favicon": "./assets/icon.png"
     }
   }
 }

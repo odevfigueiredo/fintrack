@@ -38,7 +38,7 @@ export default function DashboardPage() {
           <h1 className="text-3xl font-semibold tracking-normal text-white">Dashboard</h1>
           <p className="mt-1 text-sm text-slate-400">Resumo financeiro, tendencias e ultimas movimentacoes.</p>
         </div>
-        <Button variant="secondary" onClick={load} loading={loading}>
+        <Button variant="secondary" className="self-start md:self-auto" onClick={load} loading={loading}>
           <RefreshCw className="h-4 w-4" />
           Atualizar
         </Button>

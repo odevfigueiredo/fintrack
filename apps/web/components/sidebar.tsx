@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { BarChart3, FolderKanban, Goal, LogOut, ReceiptText, Settings } from "lucide-react";
@@ -25,9 +26,19 @@ export function Sidebar() {
 
   return (
     <aside className="flex w-full flex-col border-b border-white/10 bg-ink-950/90 p-4 lg:min-h-dvh lg:w-72 lg:border-b-0 lg:border-r">
-      <div className="mb-4 lg:mb-8">
-        <p className="text-xl font-semibold tracking-normal text-white">FinTrack</p>
-        <p className="mt-1 text-sm text-slate-400">Controle financeiro pessoal</p>
+      <div className="mb-4 flex items-center gap-3 lg:mb-8">
+        <Image
+          src="/brand/fintrack-icon-192.png"
+          alt=""
+          width={44}
+          height={44}
+          className="h-11 w-11 rounded-lg border border-cyan-primary/25 bg-ink-900"
+          priority
+        />
+        <div>
+          <p className="text-xl font-semibold tracking-normal text-white">FinTrack</p>
+          <p className="mt-1 text-sm text-slate-400">Controle financeiro pessoal</p>
+        </div>
       </div>
 
       <nav className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-1">
