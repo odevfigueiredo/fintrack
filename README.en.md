@@ -28,6 +28,17 @@ The project includes mobile and web interfaces powered by a REST API and a relat
   <em>Authentication and main Dashboard interfaces</em>
 </div>
 
+<br>
+
+<div align="center">
+  <img src="screenshots/mobile/login.png" width="24%" alt="Mobile login" />
+  <img src="screenshots/mobile/dashboard.png" width="24%" alt="Mobile dashboard" />
+  <img src="screenshots/mobile/transacoes.png" width="24%" alt="Mobile transactions" />
+  <img src="screenshots/mobile/metas.png" width="24%" alt="Mobile goals" />
+  <br>
+  <em>Responsive mobile version validated at a 390x844 viewport</em>
+</div>
+
 ---
 
 ## ✨ Features
@@ -205,6 +216,14 @@ GET    /dashboard/summary
 ## 📸 Preview
 
 <div align="center">
+  <h3>Mobile</h3>
+  <img src="screenshots/mobile/dashboard.png" width="24%" alt="Mobile dashboard" />
+  <img src="screenshots/mobile/transacoes.png" width="24%" alt="Mobile transactions" />
+  <img src="screenshots/mobile/categorias.png" width="24%" alt="Mobile categories" />
+  <img src="screenshots/mobile/configuracoes.png" width="24%" alt="Mobile settings" />
+
+  <br><br>
+
   <h3>Transactions</h3>
   <img src="screenshots/transacoes.png" width="100%" alt="Transactions" />
 

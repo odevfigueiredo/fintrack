@@ -28,6 +28,17 @@ O projeto inclui interfaces mobile e web, alimentadas por uma API REST e um banc
   <em>Interfaces de Autenticação e Dashboard principal</em>
 </div>
 
+<br>
+
+<div align="center">
+  <img src="screenshots/mobile/login.png" width="24%" alt="Login mobile" />
+  <img src="screenshots/mobile/dashboard.png" width="24%" alt="Dashboard mobile" />
+  <img src="screenshots/mobile/transacoes.png" width="24%" alt="Transações mobile" />
+  <img src="screenshots/mobile/metas.png" width="24%" alt="Metas mobile" />
+  <br>
+  <em>Versão responsiva mobile validada em viewport 390x844</em>
+</div>
+
 ---
 
 ## ✨ Funcionalidades
@@ -205,6 +216,14 @@ GET    /dashboard/summary
 ## 📸 Galeria
 
 <div align="center">
+  <h3>Mobile</h3>
+  <img src="screenshots/mobile/dashboard.png" width="24%" alt="Dashboard mobile" />
+  <img src="screenshots/mobile/transacoes.png" width="24%" alt="Transações mobile" />
+  <img src="screenshots/mobile/categorias.png" width="24%" alt="Categorias mobile" />
+  <img src="screenshots/mobile/configuracoes.png" width="24%" alt="Configurações mobile" />
+
+  <br><br>
+
   <h3>Transações</h3>
   <img src="screenshots/transacoes.png" width="100%" alt="Transações" />
 

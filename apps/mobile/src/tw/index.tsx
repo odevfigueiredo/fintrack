@@ -1,5 +1,11 @@
 import React from "react";
-import { useCssElement } from "react-native-css";
+import {
+  Pressable as CssPressable,
+  ScrollView as CssScrollView,
+  Text as CssText,
+  TextInput as CssTextInput,
+  View as CssView
+} from "react-native-css/components";
 import {
   Pressable as RNPressable,
   ScrollView as RNScrollView,
@@ -14,19 +20,19 @@ export type PressableProps = React.ComponentProps<typeof RNPressable> & { classN
 export type TextInputProps = React.ComponentProps<typeof RNTextInput> & { className?: string };
 
 export function View(props: ViewProps) {
-  return useCssElement(RNView, props, { className: "style" });
+  return <CssView {...props} />;
 }
 
 export function Text(props: TextProps) {
-  return useCssElement(RNText, props, { className: "style" });
+  return <CssText {...props} />;
 }
 
 export function Pressable(props: PressableProps) {
-  return useCssElement(RNPressable, props, { className: "style" });
+  return <CssPressable {...props} />;
 }
 
 export function TextInput(props: TextInputProps) {
-  return useCssElement(RNTextInput, props, { className: "style" });
+  return <CssTextInput {...props} />;
 }
 
 export function ScrollView(
@@ -35,8 +41,5 @@ export function ScrollView(
     contentContainerClassName?: string;
   }
 ) {
-  return useCssElement(RNScrollView, props, {
-    className: "style",
-    contentContainerClassName: "contentContainerStyle"
-  });
+  return <CssScrollView {...props} />;
 }

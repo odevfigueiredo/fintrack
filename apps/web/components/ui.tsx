@@ -5,7 +5,7 @@ import { AlertCircle, Loader2 } from "lucide-react";
 import { formatCurrency } from "@/lib/format";
 
 export function Card({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <section className={`rounded-lg border border-white/10 bg-white/[0.045] p-5 ${className}`}>{children}</section>;
+  return <section className={`min-w-0 rounded-lg border border-white/10 bg-white/[0.045] p-5 ${className}`}>{children}</section>;
 }
 
 export function Button({
