@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import type { ApiCategory } from "@fintrack/shared";
 import { createCategorySchema } from "@fintrack/shared";
 import { apiFetch } from "@/lib/api";
+import { ScreenScroll } from "@/components/screen";
 import { Button, Card, EmptyState, ErrorText, Field, Segmented } from "@/components/ui";
-import { ScrollView, Text, View } from "@/tw";
+import { Text, View } from "@/tw";
 
 const blankForm = {
   name: "",
@@ -90,7 +91,7 @@ export default function CategoriesScreen() {
   }
 
   return (
-    <ScrollView className="flex-1 bg-ink-950" contentContainerClassName="gap-5 p-5 pb-10" contentInsetAdjustmentBehavior="automatic">
+    <ScreenScroll>
       <Text className="text-2xl font-semibold text-white">Categorias</Text>
       <ErrorText message={error} />
 
@@ -139,6 +140,6 @@ export default function CategoriesScreen() {
       ) : (
         <EmptyState>Nenhuma categoria encontrada.</EmptyState>
       )}
-    </ScrollView>
+    </ScreenScroll>
   );
 }

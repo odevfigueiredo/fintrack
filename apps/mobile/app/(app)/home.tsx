@@ -3,12 +3,13 @@ import { useRouter } from "expo-router";
 import type { DashboardSummary } from "@fintrack/shared";
 import { BrandLogo } from "@/components/brand-logo";
 import { CategoryChart, IncomeExpenseChart } from "@/components/charts";
+import { ScreenScroll } from "@/components/screen";
 import { Button, Card, EmptyState, ErrorText, StatCard } from "@/components/ui";
 import { apiFetch } from "@/lib/api";
 import { countPendingTransactions } from "@/lib/local-db";
 import { syncPendingTransactions } from "@/lib/sync";
 import { formatCurrency, formatDate } from "@/lib/format";
-import { ScrollView, Text, View } from "@/tw";
+import { Text, View } from "@/tw";
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -39,7 +40,7 @@ export default function HomeScreen() {
   }, [load]);
 
   return (
-    <ScrollView className="flex-1 bg-ink-950" contentContainerClassName="gap-5 p-5 pb-10" contentInsetAdjustmentBehavior="automatic">
+    <ScreenScroll>
       <BrandLogo compact subtitle="Resumo do seu dinheiro agora." />
 
       <ErrorText message={error} />
@@ -122,6 +123,6 @@ export default function HomeScreen() {
           <EmptyState>As transações recentes aparecem aqui.</EmptyState>
         )}
       </Card>
-    </ScrollView>
+    </ScreenScroll>
   );
 }

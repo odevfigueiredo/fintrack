@@ -3,8 +3,9 @@ import type { ApiUser } from "@fintrack/shared";
 import { useRouter } from "expo-router";
 import { apiFetch } from "@/lib/api";
 import { getStoredUser } from "@/lib/auth-store";
+import { ScreenScroll } from "@/components/screen";
 import { Button, Card, ErrorText } from "@/components/ui";
-import { ScrollView, Text, View } from "@/tw";
+import { Text, View } from "@/tw";
 
 export default function ProfileScreen() {
   const router = useRouter();
@@ -26,7 +27,7 @@ export default function ProfileScreen() {
   }, []);
 
   return (
-    <ScrollView className="flex-1 bg-ink-950" contentContainerClassName="gap-5 p-5 pb-10" contentInsetAdjustmentBehavior="automatic">
+    <ScreenScroll>
       <Text className="text-2xl font-semibold text-white">Perfil</Text>
       <ErrorText message={error} />
 
@@ -51,6 +52,6 @@ export default function ProfileScreen() {
           Configurações
         </Button>
       </Card>
-    </ScrollView>
+    </ScreenScroll>
   );
 }

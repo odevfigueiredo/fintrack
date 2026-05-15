@@ -3,8 +3,9 @@ import type { ApiGoal } from "@fintrack/shared";
 import { createGoalSchema } from "@fintrack/shared";
 import { apiFetch } from "@/lib/api";
 import { formatCurrency, formatDate } from "@/lib/format";
+import { ScreenScroll } from "@/components/screen";
 import { Button, Card, EmptyState, ErrorText, Field } from "@/components/ui";
-import { ScrollView, Text, View } from "@/tw";
+import { Text, View } from "@/tw";
 
 const blankForm = {
   title: "",
@@ -98,7 +99,7 @@ export default function GoalsScreen() {
   }
 
   return (
-    <ScrollView className="flex-1 bg-ink-950" contentContainerClassName="gap-5 p-5 pb-10" contentInsetAdjustmentBehavior="automatic">
+    <ScreenScroll>
       <Text className="text-2xl font-semibold text-white">Metas</Text>
       <ErrorText message={error} />
 
@@ -158,6 +159,6 @@ export default function GoalsScreen() {
       ) : (
         <EmptyState>Crie sua primeira meta.</EmptyState>
       )}
-    </ScrollView>
+    </ScreenScroll>
   );
 }

@@ -3,8 +3,9 @@ import { useRouter } from "expo-router";
 import type { ApiTransaction } from "@fintrack/shared";
 import { apiFetch } from "@/lib/api";
 import { currentMonthInputValue, formatCurrency, formatDate } from "@/lib/format";
+import { ScreenScroll } from "@/components/screen";
 import { Button, Card, EmptyState, ErrorText, Field } from "@/components/ui";
-import { Pressable, ScrollView, Text, View } from "@/tw";
+import { Pressable, Text, View } from "@/tw";
 
 export default function TransactionsScreen() {
   const router = useRouter();
@@ -50,7 +51,7 @@ export default function TransactionsScreen() {
   }
 
   return (
-    <ScrollView className="flex-1 bg-ink-950" contentContainerClassName="gap-5 p-5 pb-10" contentInsetAdjustmentBehavior="automatic">
+    <ScreenScroll>
       <View className="gap-1">
         <Text className="text-2xl font-semibold text-white">Transações</Text>
         <Text className="text-sm text-slate-400">Filtre por mes e tipo.</Text>
@@ -109,6 +110,6 @@ export default function TransactionsScreen() {
       ) : (
         <EmptyState>Nenhuma transacao encontrada.</EmptyState>
       )}
-    </ScrollView>
+    </ScreenScroll>
   );
 }

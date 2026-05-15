@@ -4,7 +4,7 @@ import { Text, TextInput, Pressable, View } from "@/tw";
 import { formatCurrency } from "@/lib/format";
 
 export function Card({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <View className={`rounded-lg border border-white/10 bg-white/[0.05] p-4 ${className}`}>{children}</View>;
+  return <View className={`min-w-0 rounded-lg border border-white/10 bg-white/[0.05] p-4 ${className}`}>{children}</View>;
 }
 
 export function Button({
@@ -30,8 +30,13 @@ export function Button({
   return (
     <Pressable
       accessibilityRole="button"
+      accessibilityState={{ disabled: loading }}
       disabled={loading}
       onPress={onPress}
+      style={({ pressed }) => ({
+        opacity: loading ? 0.7 : pressed ? 0.88 : 1,
+        transform: [{ scale: pressed ? 0.985 : 1 }]
+      })}
       className={`min-h-12 flex-row items-center justify-center gap-2 rounded-md px-4 ${variants[variant]} ${className}`}
     >
       {loading ? <ActivityIndicator color={variant === "primary" ? "#07090d" : "#e5edf4"} /> : null}

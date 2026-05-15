@@ -3,8 +3,9 @@ import { useRouter } from "expo-router";
 import { clearSession } from "@/lib/auth-store";
 import { countPendingTransactions } from "@/lib/local-db";
 import { syncPendingTransactions } from "@/lib/sync";
+import { ScreenScroll } from "@/components/screen";
 import { Button, Card, ErrorText } from "@/components/ui";
-import { ScrollView, Text, View } from "@/tw";
+import { Text, View } from "@/tw";
 
 export default function SettingsScreen() {
   const router = useRouter();
@@ -43,7 +44,7 @@ export default function SettingsScreen() {
   }
 
   return (
-    <ScrollView className="flex-1 bg-ink-950" contentContainerClassName="gap-5 p-5 pb-10" contentInsetAdjustmentBehavior="automatic">
+    <ScreenScroll>
       <Text className="text-2xl font-semibold text-white">Configurações</Text>
       <ErrorText message={error} />
       {message ? <Text className="rounded-md border border-cyan-300/30 bg-cyan-300/10 px-3 py-2 text-sm text-cyan-100">{message}</Text> : null}
@@ -71,6 +72,6 @@ export default function SettingsScreen() {
       <Button variant="danger" onPress={logout}>
           Sair
         </Button>
-    </ScrollView>
+    </ScreenScroll>
   );
 }
