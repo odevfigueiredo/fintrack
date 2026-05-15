@@ -4,7 +4,7 @@ import { useRouter } from "expo-router";
 import { apiFetch } from "@/lib/api";
 import { getStoredUser } from "@/lib/auth-store";
 import { ScreenScroll } from "@/components/screen";
-import { Button, Card, ErrorText } from "@/components/ui";
+import { AnimatedCard, Button, ErrorText } from "@/components/ui";
 import { Text, View } from "@/tw";
 
 export default function ProfileScreen() {
@@ -31,7 +31,7 @@ export default function ProfileScreen() {
       <Text className="text-2xl font-semibold text-white">Perfil</Text>
       <ErrorText message={error} />
 
-      <Card className="gap-4">
+      <AnimatedCard className="gap-4">
         <View className="h-16 w-16 items-center justify-center rounded-lg bg-cyan-primary">
           <Text className="text-2xl font-semibold text-ink-950">{user?.name?.slice(0, 1).toUpperCase() ?? "F"}</Text>
         </View>
@@ -39,9 +39,9 @@ export default function ProfileScreen() {
           <Text className="text-xl font-semibold text-white">{user?.name ?? "Usuário"}</Text>
           <Text className="mt-1 text-sm text-slate-400">{user?.email ?? "email não carregado"}</Text>
         </View>
-      </Card>
+      </AnimatedCard>
 
-      <Card className="gap-3">
+      <AnimatedCard className="gap-3" delay={70}>
         <Button variant="secondary" onPress={() => router.push("/(app)/categories")}>
           Categorias
         </Button>
@@ -51,7 +51,7 @@ export default function ProfileScreen() {
         <Button variant="secondary" onPress={() => router.push("/(app)/settings")}>
           Configurações
         </Button>
-      </Card>
+      </AnimatedCard>
     </ScreenScroll>
   );
 }

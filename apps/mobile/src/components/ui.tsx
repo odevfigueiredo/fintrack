@@ -1,10 +1,30 @@
 import type { ReactNode } from "react";
 import { ActivityIndicator } from "react-native";
+import Animated, { FadeInUp, LinearTransition } from "react-native-reanimated";
 import { Text, TextInput, Pressable, View } from "@/tw";
 import { formatCurrency } from "@/lib/format";
 
 export function Card({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <View className={`min-w-0 rounded-lg border border-white/10 bg-white/[0.05] p-4 ${className}`}>{children}</View>;
+}
+
+export function AnimatedCard({
+  children,
+  className = "",
+  delay = 0
+}: {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  return (
+    <Animated.View
+      entering={FadeInUp.delay(delay).duration(360).springify().damping(18)}
+      layout={LinearTransition.springify().damping(18)}
+    >
+      <Card className={className}>{children}</Card>
+    </Animated.View>
+  );
 }
 
 export function Button({
@@ -90,6 +110,10 @@ export function Segmented({
         <Pressable
           key={item}
           onPress={() => onChange(item)}
+          style={({ pressed }) => ({
+            opacity: pressed ? 0.86 : 1,
+            transform: [{ scale: pressed ? 0.98 : 1 }]
+          })}
           className={`flex-1 rounded-md px-3 py-3 ${value === item ? "bg-cyan-primary" : ""}`}
         >
           <Text className={`text-center text-sm font-semibold ${value === item ? "text-ink-950" : "text-slate-300"}`}>

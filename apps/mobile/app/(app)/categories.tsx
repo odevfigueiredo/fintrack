@@ -3,7 +3,7 @@ import type { ApiCategory } from "@fintrack/shared";
 import { createCategorySchema } from "@fintrack/shared";
 import { apiFetch } from "@/lib/api";
 import { ScreenScroll } from "@/components/screen";
-import { Button, Card, EmptyState, ErrorText, Field, Segmented } from "@/components/ui";
+import { AnimatedCard, Button, Card, EmptyState, ErrorText, Field, Segmented } from "@/components/ui";
 import { Text, View } from "@/tw";
 
 const blankForm = {
@@ -112,8 +112,8 @@ export default function CategoriesScreen() {
 
       {categories.length ? (
         <View className="gap-3">
-          {categories.map((category) => (
-            <Card key={category.id} className="gap-4">
+          {categories.map((category, index) => (
+            <AnimatedCard key={category.id} className="gap-4" delay={index * 35}>
               <View className="flex-row items-center justify-between gap-3">
                 <View className="flex-row items-center gap-3">
                   <View className="h-9 w-9 rounded-md" style={{ backgroundColor: category.color }} />
@@ -134,7 +134,7 @@ export default function CategoriesScreen() {
                   </Button>
                 </View>
               ) : null}
-            </Card>
+            </AnimatedCard>
           ))}
         </View>
       ) : (

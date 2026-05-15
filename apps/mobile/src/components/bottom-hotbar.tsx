@@ -124,7 +124,7 @@ function HotbarItem({ item, active }: { item: HotbarItemConfig; active: boolean 
       onPress={navigate}
       style={[
         {
-          width: item.primary ? 62 : 58,
+          width: item.primary ? 58 : 52,
           height: 64,
           alignItems: "center",
           justifyContent: "center",
@@ -136,7 +136,7 @@ function HotbarItem({ item, active }: { item: HotbarItemConfig; active: boolean 
       <Animated.View
         style={[
           {
-            width: item.primary ? 54 : 44,
+            width: item.primary ? 52 : 40,
             height: item.primary ? 54 : 38,
             borderRadius: item.primary ? 20 : 15,
             borderWidth: 1,

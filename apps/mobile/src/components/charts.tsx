@@ -1,4 +1,5 @@
 import type { DashboardCategorySlice, DashboardMonthlyPoint } from "@fintrack/shared";
+import Animated, { FadeInLeft, FadeInUp, LinearTransition } from "react-native-reanimated";
 import { Text, View } from "@/tw";
 import { formatCurrency } from "@/lib/format";
 
@@ -7,8 +8,13 @@ export function IncomeExpenseChart({ data }: { data: DashboardMonthlyPoint[] }) 
 
   return (
     <View className="gap-4">
-      {data.map((point) => (
-        <View key={point.month} className="gap-2">
+      {data.map((point, index) => (
+        <Animated.View
+          key={point.month}
+          entering={FadeInUp.delay(index * 55).duration(320)}
+          layout={LinearTransition.springify().damping(18)}
+          style={{ gap: 8 }}
+        >
           <View className="flex-row items-center justify-between">
             <Text className="text-xs text-slate-400">{point.month}</Text>
             <Text className="text-xs text-slate-400">
@@ -17,13 +23,29 @@ export function IncomeExpenseChart({ data }: { data: DashboardMonthlyPoint[] }) 
           </View>
           <View className="gap-1">
             <View className="h-2 overflow-hidden rounded-full bg-white/10">
-              <View className="h-full rounded-full bg-emerald-soft" style={{ width: `${Math.max(4, (point.income / max) * 100)}%` }} />
+              <Animated.View
+                entering={FadeInLeft.delay(120 + index * 60).duration(520)}
+                style={{
+                  height: "100%",
+                  width: `${Math.max(4, (point.income / max) * 100)}%`,
+                  borderRadius: 999,
+                  backgroundColor: "#34D399"
+                }}
+              />
             </View>
             <View className="h-2 overflow-hidden rounded-full bg-white/10">
-              <View className="h-full rounded-full bg-rose-soft" style={{ width: `${Math.max(4, (point.expense / max) * 100)}%` }} />
+              <Animated.View
+                entering={FadeInLeft.delay(170 + index * 60).duration(520)}
+                style={{
+                  height: "100%",
+                  width: `${Math.max(4, (point.expense / max) * 100)}%`,
+                  borderRadius: 999,
+                  backgroundColor: "#FB7185"
+                }}
+              />
             </View>
           </View>
-        </View>
+        </Animated.View>
       ))}
     </View>
   );
@@ -34,16 +56,29 @@ export function CategoryChart({ data }: { data: DashboardCategorySlice[] }) {
 
   return (
     <View className="gap-4">
-      {data.map((item) => (
-        <View key={item.categoryId} className="gap-2">
+      {data.map((item, index) => (
+        <Animated.View
+          key={item.categoryId}
+          entering={FadeInUp.delay(index * 55).duration(320)}
+          layout={LinearTransition.springify().damping(18)}
+          style={{ gap: 8 }}
+        >
           <View className="flex-row items-center justify-between gap-3">
             <Text className="text-xs text-slate-300">{item.categoryName}</Text>
             <Text className="text-xs text-slate-400">{formatCurrency(item.amount)}</Text>
           </View>
           <View className="h-2 overflow-hidden rounded-full bg-white/10">
-            <View className="h-full rounded-full" style={{ width: `${Math.max(5, (item.amount / max) * 100)}%`, backgroundColor: item.color }} />
+            <Animated.View
+              entering={FadeInLeft.delay(110 + index * 70).duration(520)}
+              style={{
+                height: "100%",
+                width: `${Math.max(5, (item.amount / max) * 100)}%`,
+                borderRadius: 999,
+                backgroundColor: item.color
+              }}
+            />
           </View>
-        </View>
+        </Animated.View>
       ))}
     </View>
   );

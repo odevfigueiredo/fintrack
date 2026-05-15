@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import type { ApiGoal } from "@fintrack/shared";
 import { createGoalSchema } from "@fintrack/shared";
+import Animated, { FadeInLeft } from "react-native-reanimated";
 import { apiFetch } from "@/lib/api";
 import { formatCurrency, formatDate } from "@/lib/format";
 import { ScreenScroll } from "@/components/screen";
-import { Button, Card, EmptyState, ErrorText, Field } from "@/components/ui";
+import { AnimatedCard, Button, Card, EmptyState, ErrorText, Field } from "@/components/ui";
 import { Text, View } from "@/tw";
 
 const blankForm = {
@@ -127,8 +128,8 @@ export default function GoalsScreen() {
 
       {goals.length ? (
         <View className="gap-3">
-          {goals.map((goal) => (
-            <Card key={goal.id} className="gap-4">
+          {goals.map((goal, index) => (
+            <AnimatedCard key={goal.id} className="gap-4" delay={index * 55}>
               <View className="flex-row items-start justify-between gap-3">
                 <View className="flex-1">
                   <Text className="text-base font-semibold text-white">{goal.title}</Text>
@@ -142,7 +143,15 @@ export default function GoalsScreen() {
                   <Text className="text-xs text-slate-400">{formatCurrency(goal.targetAmount)}</Text>
                 </View>
                 <View className="h-2 overflow-hidden rounded-full bg-white/10">
-                  <View className="h-full rounded-full bg-cyan-primary" style={{ width: `${goal.progress}%` }} />
+                  <Animated.View
+                    entering={FadeInLeft.delay(120 + index * 70).duration(520)}
+                    style={{
+                      height: "100%",
+                      width: `${goal.progress}%`,
+                      borderRadius: 999,
+                      backgroundColor: "#22D3EE"
+                    }}
+                  />
                 </View>
               </View>
               <View className="flex-row gap-2">
@@ -153,7 +162,7 @@ export default function GoalsScreen() {
                   Remover
                 </Button>
               </View>
-            </Card>
+            </AnimatedCard>
           ))}
         </View>
       ) : (

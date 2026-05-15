@@ -4,7 +4,7 @@ import type { ApiTransaction } from "@fintrack/shared";
 import { apiFetch } from "@/lib/api";
 import { currentMonthInputValue, formatCurrency, formatDate } from "@/lib/format";
 import { ScreenScroll } from "@/components/screen";
-import { Button, Card, EmptyState, ErrorText, Field } from "@/components/ui";
+import { AnimatedCard, Button, Card, EmptyState, ErrorText, Field } from "@/components/ui";
 import { Pressable, Text, View } from "@/tw";
 
 export default function TransactionsScreen() {
@@ -70,6 +70,10 @@ export default function TransactionsScreen() {
             <Pressable
               key={item.value}
               onPress={() => setType(item.value as "" | "income" | "expense")}
+              style={({ pressed }) => ({
+                opacity: pressed ? 0.86 : 1,
+                transform: [{ scale: pressed ? 0.98 : 1 }]
+              })}
               className={`flex-1 rounded-md px-3 py-3 ${type === item.value ? "bg-cyan-primary" : "border border-white/10 bg-white/[0.05]"}`}
             >
               <Text className={`text-center text-sm font-semibold ${type === item.value ? "text-ink-950" : "text-slate-300"}`}>{item.label}</Text>
@@ -83,8 +87,8 @@ export default function TransactionsScreen() {
 
       {transactions.length ? (
         <View className="gap-3">
-          {transactions.map((transaction) => (
-            <Card key={transaction.id} className="gap-4">
+          {transactions.map((transaction, index) => (
+            <AnimatedCard key={transaction.id} className="gap-4" delay={index * 45}>
               <View className="flex-row items-start justify-between gap-3">
                 <View className="flex-1">
                   <Text className="text-base font-semibold text-white">{transaction.title}</Text>
@@ -104,7 +108,7 @@ export default function TransactionsScreen() {
                   Remover
                 </Button>
               </View>
-            </Card>
+            </AnimatedCard>
           ))}
         </View>
       ) : (
