@@ -3,7 +3,7 @@ import { useRouter } from "expo-router";
 import type { ApiTransaction } from "@fintrack/shared";
 import { apiFetch } from "@/lib/api";
 import { currentMonthInputValue, formatCurrency, formatDate } from "@/lib/format";
-import { ScreenScroll } from "@/components/screen";
+import { ScreenHeader, ScreenScroll } from "@/components/screen";
 import { AnimatedCard, Button, Card, EmptyState, ErrorText, Field } from "@/components/ui";
 import { Pressable, Text, View } from "@/tw";
 
@@ -52,10 +52,11 @@ export default function TransactionsScreen() {
 
   return (
     <ScreenScroll>
-      <View className="gap-1">
-        <Text className="text-2xl font-semibold text-white">Transações</Text>
-        <Text className="text-sm text-slate-400">Filtre por mes e tipo.</Text>
-      </View>
+      <ScreenHeader
+        title="Transacoes"
+        subtitle="Filtre por mes e tipo, revise lancamentos e edite valores sem sair do fluxo."
+        badge={`${transactions.length} no periodo`}
+      />
 
       <ErrorText message={error} />
 

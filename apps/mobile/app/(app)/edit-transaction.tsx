@@ -1,14 +1,17 @@
 import { useLocalSearchParams } from "expo-router";
-import { ScreenScroll } from "@/components/screen";
+import { ScreenHeader, ScreenScroll } from "@/components/screen";
 import { TransactionForm } from "@/components/transaction-form";
-import { Text } from "@/tw";
 
 export default function EditTransactionScreen() {
   const params = useLocalSearchParams<{ id?: string }>();
 
   return (
     <ScreenScroll>
-      <Text className="text-2xl font-semibold text-white">Editar transacao</Text>
+      <ScreenHeader
+        title="Editar transacao"
+        subtitle="Ajuste valor, categoria, data ou descricao mantendo o historico organizado."
+        badge="Revisao"
+      />
       <TransactionForm transactionId={params.id} />
     </ScreenScroll>
   );

@@ -14,6 +14,7 @@ config.resolver.blockList = [
   /(^|[/\\])output[/\\].*$/,
   ...defaultBlockList
 ];
+config.resolver.assetExts = Array.from(new Set([...config.resolver.assetExts, "wasm"]));
 
 module.exports = withNativewind(config, {
   inlineVariables: false,

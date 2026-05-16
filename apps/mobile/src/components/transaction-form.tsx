@@ -126,13 +126,25 @@ export function TransactionForm({ transactionId }: { transactionId?: string }) {
             <Pressable
               key={category.id}
               onPress={() => setForm({ ...form, categoryId: category.id })}
+              style={({ pressed }) => ({
+                opacity: pressed ? 0.86 : 1,
+                transform: [{ scale: pressed ? 0.97 : 1 }]
+              })}
               className={`rounded-md border px-3 py-2 ${
                 form.categoryId === category.id ? "border-cyan-primary bg-cyan-300/10" : "border-white/10 bg-white/[0.04]"
               }`}
             >
-              <Text className={form.categoryId === category.id ? "text-cyan-100" : "text-slate-300"}>{category.name}</Text>
+              <View className="flex-row items-center gap-2">
+                <View className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: category.color }} />
+                <Text className={form.categoryId === category.id ? "text-cyan-100" : "text-slate-300"}>{category.name}</Text>
+              </View>
             </Pressable>
           ))}
+          {!availableCategories.length ? (
+            <Text className="rounded-md border border-dashed border-white/10 px-3 py-2 text-sm text-slate-400">
+              Nenhuma categoria para este tipo.
+            </Text>
+          ) : null}
         </View>
       </View>
 

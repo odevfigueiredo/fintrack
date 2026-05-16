@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { ApiCategory } from "@fintrack/shared";
 import { createCategorySchema } from "@fintrack/shared";
 import { apiFetch } from "@/lib/api";
-import { ScreenScroll } from "@/components/screen";
+import { ScreenHeader, ScreenScroll } from "@/components/screen";
 import { AnimatedCard, Button, Card, EmptyState, ErrorText, Field, Segmented } from "@/components/ui";
 import { Text, View } from "@/tw";
 
@@ -92,7 +92,11 @@ export default function CategoriesScreen() {
 
   return (
     <ScreenScroll>
-      <Text className="text-2xl font-semibold text-white">Categorias</Text>
+      <ScreenHeader
+        title="Categorias"
+        subtitle="Organize receitas e despesas com cores claras para leitura rapida."
+        badge={`${categories.length} ativas`}
+      />
       <ErrorText message={error} />
 
       <Card className="gap-4">

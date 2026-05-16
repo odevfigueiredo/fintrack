@@ -86,17 +86,23 @@ function IconShape({ name, active, primary }: { name: HotbarIconName; active: bo
 function HotbarItem({ item, active }: { item: HotbarItemConfig; active: boolean }) {
   const router = useRouter();
   const progress = useSharedValue(active ? 1 : 0);
+  const press = useSharedValue(0);
 
   useEffect(() => {
     progress.value = withSpring(active ? 1 : 0, { damping: 16, stiffness: 190 });
   }, [active, progress]);
 
-  const itemStyle = useAnimatedStyle(() => ({
-    transform: [
-      { translateY: interpolate(progress.value, [0, 1], [0, item.primary ? -8 : -3]) },
-      { scale: interpolate(progress.value, [0, 1], [1, item.primary ? 1.06 : 1.03]) }
-    ]
-  }));
+  const itemStyle = useAnimatedStyle(() => {
+    const activeScale = interpolate(progress.value, [0, 1], [1, item.primary ? 1.06 : 1.03]);
+    const pressScale = interpolate(press.value, [0, 1], [1, 0.94]);
+
+    return {
+      transform: [
+        { translateY: interpolate(progress.value, [0, 1], [0, item.primary ? -8 : -3]) },
+        { scale: activeScale * pressScale }
+      ]
+    };
+  });
 
   const bubbleStyle = useAnimatedStyle(() => ({
     backgroundColor: item.primary
@@ -121,6 +127,13 @@ function HotbarItem({ item, active }: { item: HotbarItemConfig; active: boolean 
     <AnimatedPressable
       accessibilityRole="button"
       accessibilityLabel={item.label}
+      hitSlop={8}
+      onPressIn={() => {
+        press.value = withSpring(1, { damping: 18, stiffness: 260 });
+      }}
+      onPressOut={() => {
+        press.value = withSpring(0, { damping: 16, stiffness: 220 });
+      }}
       onPress={navigate}
       style={[
         {

@@ -34,9 +34,9 @@ O projeto inclui interfaces mobile e web, alimentadas por uma API REST e um banc
   <img src="screenshots/mobile/login.png" width="24%" alt="Login mobile" />
   <img src="screenshots/mobile/dashboard.png" width="24%" alt="Dashboard mobile" />
   <img src="screenshots/mobile/transacoes.png" width="24%" alt="Transações mobile" />
-  <img src="screenshots/mobile/metas.png" width="24%" alt="Metas mobile" />
+  <img src="screenshots/mobile/nova-transacao.png" width="24%" alt="Nova transação mobile" />
   <br>
-  <em>Versão responsiva mobile validada em viewport 390x844</em>
+  <em>App mobile React Native validado, com hotbar inferior e fluxo de transações</em>
 </div>
 
 ---
@@ -51,6 +51,8 @@ O projeto inclui interfaces mobile e web, alimentadas por uma API REST e um banc
 - Métricas e gráficos no dashboard
 - Feed de transações recentes
 - Filtros por tipo, categoria e data
+- Hotbar inferior no mobile
+- Persistência offline preparada com SQLite local
 - Rotas protegidas
 - Validação de dados na API
 
@@ -219,6 +221,11 @@ GET    /dashboard/summary
   <h3>Mobile</h3>
   <img src="screenshots/mobile/dashboard.png" width="24%" alt="Dashboard mobile" />
   <img src="screenshots/mobile/transacoes.png" width="24%" alt="Transações mobile" />
+  <img src="screenshots/mobile/nova-transacao.png" width="24%" alt="Nova transação mobile" />
+  <img src="screenshots/mobile/metas.png" width="24%" alt="Metas mobile" />
+
+  <br><br>
+
   <img src="screenshots/mobile/categorias.png" width="24%" alt="Categorias mobile" />
   <img src="screenshots/mobile/configuracoes.png" width="24%" alt="Configurações mobile" />
 

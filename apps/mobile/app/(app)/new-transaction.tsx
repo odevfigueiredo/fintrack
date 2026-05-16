@@ -1,11 +1,14 @@
-import { ScreenScroll } from "@/components/screen";
+import { ScreenHeader, ScreenScroll } from "@/components/screen";
 import { TransactionForm } from "@/components/transaction-form";
-import { Text } from "@/tw";
 
 export default function NewTransactionScreen() {
   return (
     <ScreenScroll>
-      <Text className="text-2xl font-semibold text-white">Nova transacao</Text>
+      <ScreenHeader
+        title="Nova transacao"
+        subtitle="Registre uma receita ou despesa. Se estiver offline, o app salva no SQLite local."
+        badge="Lancamento"
+      />
       <TransactionForm />
     </ScreenScroll>
   );

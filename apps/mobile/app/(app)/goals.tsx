@@ -4,7 +4,7 @@ import { createGoalSchema } from "@fintrack/shared";
 import Animated, { FadeInLeft } from "react-native-reanimated";
 import { apiFetch } from "@/lib/api";
 import { formatCurrency, formatDate } from "@/lib/format";
-import { ScreenScroll } from "@/components/screen";
+import { ScreenHeader, ScreenScroll } from "@/components/screen";
 import { AnimatedCard, Button, Card, EmptyState, ErrorText, Field } from "@/components/ui";
 import { Text, View } from "@/tw";
 
@@ -101,7 +101,11 @@ export default function GoalsScreen() {
 
   return (
     <ScreenScroll>
-      <Text className="text-2xl font-semibold text-white">Metas</Text>
+      <ScreenHeader
+        title="Metas"
+        subtitle="Acompanhe progresso, prazo e aporte atual de cada objetivo financeiro."
+        badge={`${goals.length} objetivos`}
+      />
       <ErrorText message={error} />
 
       <Card className="gap-4">

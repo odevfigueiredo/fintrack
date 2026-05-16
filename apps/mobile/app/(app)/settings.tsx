@@ -3,7 +3,7 @@ import { useRouter } from "expo-router";
 import { clearSession } from "@/lib/auth-store";
 import { countPendingTransactions } from "@/lib/local-db";
 import { syncPendingTransactions } from "@/lib/sync";
-import { ScreenScroll } from "@/components/screen";
+import { ScreenHeader, ScreenScroll } from "@/components/screen";
 import { AnimatedCard, Button, ErrorText } from "@/components/ui";
 import { Text, View } from "@/tw";
 
@@ -45,7 +45,11 @@ export default function SettingsScreen() {
 
   return (
     <ScreenScroll>
-      <Text className="text-2xl font-semibold text-white">Configurações</Text>
+      <ScreenHeader
+        title="Configuracoes"
+        subtitle="Sincronizacao offline, atalhos de navegacao e saida segura da conta."
+        badge={pending > 0 ? `${pending} offline` : "Tudo sincronizado"}
+      />
       <ErrorText message={error} />
       {message ? <Text className="rounded-md border border-cyan-300/30 bg-cyan-300/10 px-3 py-2 text-sm text-cyan-100">{message}</Text> : null}
 

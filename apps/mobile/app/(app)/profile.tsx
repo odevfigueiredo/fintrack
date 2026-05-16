@@ -3,7 +3,7 @@ import type { ApiUser } from "@fintrack/shared";
 import { useRouter } from "expo-router";
 import { apiFetch } from "@/lib/api";
 import { getStoredUser } from "@/lib/auth-store";
-import { ScreenScroll } from "@/components/screen";
+import { ScreenHeader, ScreenScroll } from "@/components/screen";
 import { AnimatedCard, Button, ErrorText } from "@/components/ui";
 import { Text, View } from "@/tw";
 
@@ -28,7 +28,11 @@ export default function ProfileScreen() {
 
   return (
     <ScreenScroll>
-      <Text className="text-2xl font-semibold text-white">Perfil</Text>
+      <ScreenHeader
+        title="Perfil"
+        subtitle="Dados da conta, atalhos de organizacao e preferencias principais."
+        badge="Conta"
+      />
       <ErrorText message={error} />
 
       <AnimatedCard className="gap-4">
